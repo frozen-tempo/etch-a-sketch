@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "JetBrains Mono";
+  src:
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Bold.woff")
+      format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "JetBrains Mono";
+}
+
+.toolbar {
+  display: flex;
+  padding-inline: 250px;
+  flex-direction: row;
+  justify-content: space-between;
+}
