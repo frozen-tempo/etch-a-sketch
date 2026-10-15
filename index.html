@@ -6,12 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css" />
   </head>
-  <body>
+  <body onload="generateGrid(15)">
     <div class="header"><h1>Etch-a-sketch</h1></div>
     <div class="toolbar">
-      <input type="color" name="pen-color" id="pen-color" />
       <btn class="pen-btm">Draw Mode</btn>
       <btn class="eraser-btn">Eraser Mode</btn>
+      <input type="color" name="pen-color" id="pen-color" />
       <div class="canvas-size-slider">
         <input
           type="range"
@@ -27,8 +27,7 @@
       <btn class="clear-btn">Clear Canvas</btn>
       <btn class="scratchcard-md-btn">Scratchcard Mode</btn>
     </div>
-    <div class="sketch-container"></div>
-    <div class="canvas"></div>
+      <div class="canvas" id="canvas"></div>
     <div class="footer"></div>
     <script src="etch-a-sketch.js"></script>
   </body>
