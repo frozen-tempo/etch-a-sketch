@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css" />
   </head>
-  <body onload="generateGrid(15)">
+  <body onload="generateGrid(document.getElementById('canvas-size-slider').value)">
     <div class="header"><h1>Etch-a-sketch</h1></div>
     <div class="toolbar">
       <btn class="pen-btm">Draw Mode</btn>
@@ -18,11 +18,11 @@
           name="canvas-size-slider"
           id="canvas-size-slider"
           min="15"
-          max="100"
+          max="50"
           value="15"
           onchange="updateSlider(this.value)"
         />
-        <span id="sliderValue">15</span>
+        <span id="sliderValue"></span>
       </div>
       <btn class="clear-btn">Clear Canvas</btn>
       <btn class="scratchcard-md-btn">Scratchcard Mode</btn>
