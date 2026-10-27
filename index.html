@@ -9,8 +9,8 @@
   <body onload="generateGrid(document.getElementById('canvas-size-slider').value)">
     <div class="header"><h1>Etch-a-sketch</h1></div>
     <div class="toolbar">
-      <btn class="pen-btm">Draw Mode</btn>
-      <btn class="eraser-btn">Eraser Mode</btn>
+      <btn class="pen-btm" onclick="changeMode('draw')">Draw Mode</btn>
+      <btn class="eraser-btn" onclick="changeMode('erase')">Eraser Mode</btn>
       <input type="color" name="pen-color" id="pen-color" />
       <div class="canvas-size-slider">
         <input
@@ -25,7 +25,7 @@
         <span id="sliderValue">15</span>
       </div>
       <btn class="clear-btn" onclick="clearCanvas()">Clear Canvas</btn>
-      <btn class="scratchcard-md-btn">Scratchcard Mode</btn>
+      <btn class="scratchcard-md-btn" onclick="changeMode('scratch')">Scratchcard Mode</btn>
     </div>
       <div class="canvas" id="canvas"></div>
     <div class="footer"></div>

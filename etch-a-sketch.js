@@ -24,6 +24,27 @@ function updateSlider(value) {
     clearCanvas();
 }
 
+function changeMode(mode) {
+
+    if (mode === "draw") {
+        drawMode = true;
+        eraseMode = false;
+        scratchMode = false;
+    }
+    else if (mode === "erase") {
+        drawMode = false;
+        eraseMode = true;
+        scratchMode = false;
+    }
+    else if (mode === "scratch") {
+        drawMode = false;
+        eraseMode = false;
+        scratchMode = true;
+    }
+
+    console.log(`Draw Mode: ${drawMode}, Erase Mode: ${eraseMode}, Scratch Mode: ${scratchMode}`);
+}
+
 function changePixel(colour) {
 
     if (drawMode) {
