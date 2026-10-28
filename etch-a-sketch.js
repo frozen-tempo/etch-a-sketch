@@ -1,11 +1,14 @@
-var drawMode = true;
-var eraseMode = false;
-var scratchMode = false;
+var mode = null;
+var colour = "black";
+var activePen = false;
 
 function generateGrid(canvasSize) {
 
     var canvas= document.getElementById("canvas");
     canvas.innerHTML = "";
+
+    canvas.addEventListener("mousedown", (event) => { event.preventDefault(); activePen = true; });
+    canvas.addEventListener("mouseup", (event) => { event.preventDefault(); activePen = false; });
 
     for (let i = 0; i < canvasSize * canvasSize; i++) {
         canvas.appendChild(document.createElement("div")).classList.add("pixel");
@@ -15,7 +18,18 @@ function generateGrid(canvasSize) {
         var pixel = canvas.children[i];
         pixel.style.width = `${100 / canvasSize}%`;
         pixel.style.height = `${100 / canvasSize}%`;
+        pixel.addEventListener("mouseover", changePixel);
     }
+}
+
+function changeColour(value) {
+    colour = value;
+    console.log(`Colour changed to: ${colour}`);
+}
+
+function changeMode(newMode) {
+    mode = newMode;
+    console.log(`Mode changed to: ${mode}`);
 }
 
 function updateSlider(value) {
@@ -24,41 +38,21 @@ function updateSlider(value) {
     clearCanvas();
 }
 
-function changeMode(mode) {
+function changePixel() {
+
+    if (activePen != true) return;
 
     if (mode === "draw") {
-        drawMode = true;
-        eraseMode = false;
-        scratchMode = false;
-    }
-    else if (mode === "erase") {
-        drawMode = false;
-        eraseMode = true;
-        scratchMode = false;
-    }
-    else if (mode === "scratch") {
-        drawMode = false;
-        eraseMode = false;
-        scratchMode = true;
-    }
-
-    console.log(`Draw Mode: ${drawMode}, Erase Mode: ${eraseMode}, Scratch Mode: ${scratchMode}`);
-}
-
-function changePixel(colour) {
-
-    if (drawMode) {
         this.style.backgroundColor = colour;
     }
 
-    if (eraseMode) {
+    if (mode === "erase") {
         this.style.backgroundColor = "white";
     }
     
-    if (scratchMode) {
+    if (mode === "scratch") {
         this.style.backgroundColor = "transparent";
     }
-
 }
 
 function clearCanvas() {

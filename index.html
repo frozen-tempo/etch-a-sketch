@@ -11,7 +11,7 @@
     <div class="toolbar">
       <btn class="pen-btm" onclick="changeMode('draw')">Draw Mode</btn>
       <btn class="eraser-btn" onclick="changeMode('erase')">Eraser Mode</btn>
-      <input type="color" name="pen-color" id="pen-color" />
+      <input type="color" name="pen-color" id="pen-color" onchange="changeColour(this.value)"/>
       <div class="canvas-size-slider">
         <input
           type="range"
